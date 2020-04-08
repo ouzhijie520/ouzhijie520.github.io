@@ -97,10 +97,9 @@
       
 
       
-      <h3 id="C语言走迷宫"><a href="#C语言走迷宫" class="headerlink" title="C语言走迷宫"></a>C语言走迷宫</h3><p>建博客的第一天，很多东西不是很懂，慢慢来吧！</p>
+      <h1 id="C语言走迷宫"><a href="#C语言走迷宫" class="headerlink" title="C语言走迷宫"></a>C语言走迷宫</h1><p>建博客的第一天，很多东西不是很懂，慢慢来吧！</p>
 <p>先水一篇C语言代码</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">char</span> a[<span class="number">50</span>][<span class="number">50</span>]=&#123;<span class="string">"##########"</span>,</span><br><span class="line">                 <span class="string">"#0   #   #"</span>,</span><br><span class="line">                 <span class="string">"# ##   ###"</span>,</span><br><span class="line">                 <span class="string">"#    #   #"</span>,</span><br><span class="line">                 <span class="string">"#### ## ##"</span>,</span><br><span class="line">                 <span class="string">"####### ##"</span>,</span><br><span class="line">                &#125;;</span><br><span class="line">    <span class="keyword">int</span> i, x, y, p, q;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    x = <span class="number">1</span>; y = <span class="number">1</span>; p = <span class="number">5</span>; q = <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">puts</span>(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(x!=p || y!=q) &#123;</span><br><span class="line">        ch = getch();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">'s'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[x+<span class="number">1</span>][y] != <span class="string">'#'</span>) &#123;</span><br><span class="line">                a[x][y] = <span class="string">' '</span>;</span><br><span class="line">                x++;</span><br><span class="line">                a[x][y] = <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">'w'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[x<span class="number">-1</span>][y] != <span class="string">'#'</span>) &#123;</span><br><span class="line">                a[x][y] = <span class="string">' '</span>;</span><br><span class="line">                x--;</span><br><span class="line">                a[x][y] = <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">'d'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[x][y+<span class="number">1</span>] != <span class="string">'#'</span>) &#123;</span><br><span class="line">                a[x][y] = <span class="string">' '</span>;</span><br><span class="line">                y++;</span><br><span class="line">                a[x][y] = <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">'a'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[x][y<span class="number">-1</span>] != <span class="string">'#'</span>) &#123;</span><br><span class="line">                a[x][y] = <span class="string">' '</span>;</span><br><span class="line">                y--;</span><br><span class="line">                a[x][y] = <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        system(<span class="string">"cls"</span>);</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">puts</span>(a[i]);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    system(<span class="string">"cls"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"You win!\n"</span>);</span><br><span class="line"></span><br><span class="line">    Sleep(<span class="number">5000</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
       <!-- reward -->
@@ -110,16 +109,6 @@
     
       <!-- copyright -->
       
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>Copyright： </strong>
-              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
-            </li>
-          </ul>
-        </div>
-        
     <footer class="article-footer">
       
           
@@ -247,15 +236,10 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
-        John Doe
+        2020
+        Ou Zhi Jie
       </li>
       <li>
-        
-        Powered by
-        
-        
-        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
       </li>
     </ul>
